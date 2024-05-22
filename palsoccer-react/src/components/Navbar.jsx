@@ -12,7 +12,7 @@ const Navbar = () => {
     setMenu(!menu);
   };
   return (
-    <header className="fixed w-full z-10 bg-navbarcolor text-dimWhite py-4">
+    <header className="fixed w-full z-10 bg-navbarcolor/95 text-dimWhite py-4">
       {/* desktop navigation section  */}
       <nav id="navbaractive"className=" container flex justify-between items-center">
         <div className=" flex items-center gap-2">
@@ -32,7 +32,7 @@ const Navbar = () => {
           <NavLink
             to="/aboutus"
           >
-            <button onMouseOver={() => setIsOpen((prev) => !prev)} className="bg-navbarcolor hover:text-sky-500 transition duration-200 ease-linear hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-1 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-sky-500 before:absolute before:left-0 before:bottom-0 ">
+            <button onMouseOver={() => setIsOpen((prev) => !prev)} className="focus:bg-navbarcolor hover:text-sky-500 transition duration-200 ease-linear hover:before:scale-x-100 hover:before:origin-left relative before:w-full before:h-1 before:origin-right before:transition-transform before:duration-300 before:scale-x-0 before:bg-sky-500 before:absolute before:left-0 before:bottom-0 ">
             About Us
             
             </button>
@@ -41,12 +41,22 @@ const Navbar = () => {
                 <div className="bg-navbarcolor absolute flex flex-col items-start rounded-lg p-3  ">
                   <NavLink
                     to="/board"
-                    className=" hover:text-sky-500 transition duration-200 ease-linear font-bold flex w-full justify-between p-3 hover:bg-sky-500 cursor-pointer rounded-r-lg border-l-transparent hover:border-l-white border-l-4"
+                    className=" hover:text-white transition duration-200 ease-linear font-bold flex w-full justify-between p-3 hover:bg-sky-500 cursor-pointer rounded-r-lg border-l-transparent hover:border-l-white border-l-4"
                   >
                     Board
                   </NavLink>
-                  <h3 className="font-bold flex w-full justify-between p-3 hover:bg-sky-500 cursor-pointer rounded-r-lg border-l-transparent hover:border-l-white border-l-4">About Santa Clara PAL</h3>
-                  <h3 className="font-bold flex w-full justify-between p-3 hover:bg-sky-500 cursor-pointer rounded-r-lg border-l-transparent hover:border-l-white border-l-4">Locations</h3>
+                  <NavLink
+                    to="/aboutsc"
+                    className=" hover:text-white transition duration-200 ease-linear font-bold flex w-full justify-between p-3 hover:bg-sky-500 cursor-pointer rounded-r-lg border-l-transparent hover:border-l-white border-l-4"
+                  >
+                    About Santa Clara PAL
+                  </NavLink>
+                  <NavLink
+                    to="/soccerfields"
+                    className=" hover:text-white transition duration-200 ease-linear font-bold flex w-full justify-between p-3 hover:bg-sky-500 cursor-pointer rounded-r-lg border-l-transparent hover:border-l-white border-l-4"
+                  >
+                    Locations
+                  </NavLink>
               </div>
               )}
           </NavLink>
@@ -57,7 +67,7 @@ const Navbar = () => {
             League Info
           </NavLink>
           <NavLink
-            to="/signup"
+            to="/volunteer"
             className=" hover:text-sky-500 transition duration-200 ease-linear"
           >
             Volunteers
