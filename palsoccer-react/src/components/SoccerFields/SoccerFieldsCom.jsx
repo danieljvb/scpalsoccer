@@ -2,10 +2,10 @@ import React from 'react'
 
 const SoccerFieldsCom = () => {
   return (
-    <div className='bg-black px-1 sm:px-10'>
+    <div className='bg-black py-10 px-1 sm:px-10'>
       <div className='bg-white '>
-        <div className=' px-5'>
-          <h2 className='md:text-7x1 underline underline-offset-8 decoration-4 text-center py-10 text-4xl font-bold text-sky-700 mb-6 leading-relaxed overline'>Where we play!</h2>
+        <div className='py-10 px-5'>
+          <h2 className='py-10 md:text-7x1 underline underline-offset-8 decoration-4 text-center py-10 text-4xl font-bold text-sky-700 mb-6 leading-relaxed overline'>Where we play!</h2>
           
             <div className='grid grid-cols-1 md:grid-cols-3 md:gap-2 gap-1 items-start px-5'>
                 <div className='px-2'>

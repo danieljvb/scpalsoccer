@@ -74,7 +74,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             to="/signup"
-            className=" hover:text-sky-500 transition duration-200 ease-linear"
+            className="visibility: hidden hover:text-sky-500 transition duration-200 ease-linear"
           >
             Sign up
           </NavLink>
@@ -87,10 +87,10 @@ const Navbar = () => {
             
             </button>
           </NavLink>
-
-          <button className=" hidden lg:flex border-2 border-primary text-lg px-4 rounded-md hover:bg-primary transition duration-200 ease-linear">
+            <div className="visibility: hidden ">
+          <button className="visibility:hidden lg:flex border-2 border-primary text-lg px-4 rounded-md hover:bg-primary transition duration-200 ease-linear">
             Sign In
-          </button>
+          </button></div>
         </div>
         <div className="md:hidden flex items-center">          
           {menu ? (
@@ -127,14 +127,26 @@ const Navbar = () => {
         >
           League Info
         </NavLink>
+          <NavLink
+            to="/volunteer"
+            className=" hover:text-sky-500 transition duration-200 ease-linear"
+          >
+            Volunteers
+          </NavLink>
+          <NavLink
+            to="/soccerfields"
+            className=" hover:text-sky-500 transition duration-200 ease-linear"
+          >
+            Soccer Fields
+          </NavLink>
         <NavLink
           to="/signup"
-          className=" hover:text-primary transition duration-200 ease-linear"
+          className="visibility: hidden hover:text-primary transition duration-200 ease-linear"
         >
           Sign up!
         </NavLink>
         <div>
-          <button className="border-2 border-primary py-1 px-4 rounded-md">
+          <button className="visibility: hidden border-2 border-primary py-1 px-4 rounded-md">
             Sign In
           </button>
         </div>

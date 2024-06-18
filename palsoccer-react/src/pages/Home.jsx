@@ -1,10 +1,21 @@
-import React from 'react';
+import React,{ useState }  from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Hero from '../components/Home/Hero';
 import { motion } from "framer-motion";
+import Modal from "../components/Modal";
 
 const Home = () => {
+  const [open, setOpen] = useState(false)
+  function SubmitMsn(e){
+    const formEle = document.querySelector("form")
+    e.preventDefault()
+    const formData = new FormData(formEle)
+    fetch("https://script.google.com/macros/s/AKfycbzIzRONmjRh_DyFWlKYO96miCCEf2akBriR41ICRfHzrgNPXw4Nk8uB-K5Wv8MgYk50Ew/exec",{
+      method:"POST",
+      body: formData}
+    )
+  }
   return (
     <>
       <Navbar />
@@ -99,16 +110,43 @@ const Home = () => {
               </div>
               <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
               <div className='py-3'>
-                <button className='w-full py-3 px-8 bg-sky-500 font-semibold text-white font-bold rounded hover:bg-sky-500 transition-all duration-300'>EMAIL US!</button>
+                <button className='w-full py-3 px-8 bg-sky-500 font-semibold text-white font-bold rounded hover:bg-sky-500 transition-all duration-300' onClick={() => setOpen(true)}>EMAIL US!</button>
                     
               </div>
               <div className='py-3'>
-                <button className='w-full py-3 px-8 bg-sky-500 font-semibold text-white font-bold rounded hover:bg-sky-500 transition-all duration-300'>DONATE -</button>
+                <button onClick={() => window.location = 'mailto:scpalsoccer@gmail.com'} className='w-full py-3 px-8 bg-sky-500 font-semibold text-white font-bold rounded hover:bg-sky-500 transition-all duration-300'>DONATE -</button>
                     
               </div>
 
             </div>
         </div>
+        <Modal open={open} onClose={() => setOpen(false)}>
+        <div className="text-center w-56">
+          
+          <div className="mx-auto my-4 w-48">
+            <h3 className="text-lg font-black text-gray-800">Send us a Message</h3>
+            <div className='App'>
+              <form className='form' onSubmit={(e)=>SubmitMsn(e)}>
+                <input placeholder='Name' name='Name' type='text'></input>
+                <input placeholder='Email' name='Email'type='email'/>
+                <input placeholder='Message' name='Message' type='text'/>
+                <input className='buttom' type='submit'/>
+
+              </form>
+
+            </div>
+          </div>
+          <div className="flex gap-4">
+            
+            <button
+              className="btn btn-light w-full"
+              onClick={() => setOpen(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </Modal>
       <Footer/>
     </>
   )
