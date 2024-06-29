@@ -4,9 +4,12 @@ import Footer from '../components/Footer';
 import Hero from '../components/Home/Hero';
 import { motion } from "framer-motion";
 import Modal from "../components/Modal";
+import ModalSubs from "../components/ModalSubs";
 
 const Home = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen ] = useState(false)
+  const [open2, setOpen2] = useState(false)
+
   function SubmitMsn(e){
     const formEle = document.querySelector("form")
     e.preventDefault()
@@ -44,7 +47,8 @@ const Home = () => {
                 <div className='gradient_background rounded-x1 rounded-br-[80px] md:p-9 px-4 py-9'>
                   <div className='flex flex-col md:flex-row justifu-between items-center gap-10'>
                       <h1 className='font-bold sz-double text-white'>2024 FALL REC REGISTRATION IS OPEN!</h1>
-                      <button className='py-3 px-8 bg-white font-semibold text-black rounded hover:bg-sky-500 transition-all duration-300'>Click Here</button>
+                      <button className='py-3 px-8 bg-white font-semibold text-black rounded hover:bg-sky-500 transition-all duration-300'>
+                      <a href="https://registration.bluesombrero.com/3883/program-questions/preview/172891" target="_blank" className=" hover:translate-x-3 transition duration-200 ease-linear">Click Here</a></button>
                       
                       </div>
 
@@ -88,13 +92,10 @@ const Home = () => {
                 <label className="block mb-2 sz-double font-medium text-sky-500 dark:text-white">Subscribe for Email Updates</label>
                   <div className="flex items-center border-b border-sky-500 py-2">
 
-                    <input className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Email Address" aria-label="Email Address"/>
-                    <button className="flex-shrink-0 bg-sky-500 hover:bg-teal-700 border-sky-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+                    <button className="flex-shrink-0 bg-sky-500 hover:bg-teal-700 border-sky-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button" onClick={() => setOpen2(true)}>
                       Sign Up
                     </button>
-                    <button className="flex-shrink-0 border-transparent border-4 text-sky-500 hover:text-teal-800 text-sm py-1 px-2 rounded" type="button">
-                      Cancel
-                    </button>
+                    
                   </div>
                 </form>
               </div>
@@ -120,21 +121,14 @@ const Home = () => {
 
             </div>
         </div>
+
         <Modal open={open} onClose={() => setOpen(false)}>
-        <div className="text-center w-56">
+        <div className="text-center w-156">
           
-          <div className="mx-auto my-4 w-48">
-            <h3 className="text-lg font-black text-gray-800">Send us a Message</h3>
-            <div className='App'>
-              <form className='form' onSubmit={(e)=>SubmitMsn(e)}>
-                <input placeholder='Name' name='Name' type='text'></input>
-                <input placeholder='Email' name='Email'type='email'/>
-                <input placeholder='Message' name='Message' type='text'/>
-                <input className='buttom' type='submit'/>
-
-              </form>
-
-            </div>
+          <div className="mx-auto my-4 w-148">
+            <h2 className="text-2xl font-black text-gray-900">Send us a Message</h2>
+            <h2 className="text-xl font-normal text-gray-600">scpalsoccer@gmail.com</h2>
+            
           </div>
           <div className="flex gap-4">
             
@@ -142,11 +136,32 @@ const Home = () => {
               className="btn btn-light w-full"
               onClick={() => setOpen(false)}
             >
-              Cancel
+              Close
             </button>
           </div>
         </div>
       </Modal>
+      
+
+      <ModalSubs open2={open2} onClose={() => setOpen2(false)}>
+        <div className="text-center w-156">
+          
+          <div className="mx-auto my-4 w-148">
+            <h2 className="text-2xl font-black text-gray-900">Subscribe for Updates</h2>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRAoakobNkFT786FjR_gLtG9iThJPFmXg7V_CxdVBCxvzQ_w/viewform?embedded=true" width="240" height="254" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            
+          </div>
+          <div className="flex gap-4">
+            
+            <button
+              className="btn btn-light w-full"
+              onClick={() => setOpen2(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </ModalSubs>
       <Footer/>
     </>
   )
